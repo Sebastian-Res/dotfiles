@@ -48,9 +48,9 @@ fi
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'
 if [ "$color_prompt" = yes ]; then
 #PS1='${debian_chroot:+($debian_chroot)}\[\e[93m\]\u@\h\[\e[0m\] \[\e[92m\]\w\[\e[38;5;177m\]${PS1_CMD1}\[\e[0m\] \[\e[93m\]λ\[\e[0m\] '
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[38;5;226m\]\u@\h\[\e[0m\] \[\e[38;5;46m\]\w\[\e[96m\]${PS1_CMD1}\[\e[0m\] \[\e[38;5;214m\]λ\[\e[0m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[38;5;226m\]\u@\h\[\e[0m\] \[\e[38;5;46m\]\w\[\e[96m\]${PS1_CMD1}\[\e[0m\] \[\e[38;5;214m\]\n λ\[\e[0m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w${PS1_CMD1} λ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w${PS1_CMD1}\n λ '
 fi
 unset color_prompt force_color_prompt
 
