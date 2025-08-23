@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-FILES_AND_DIRS=(.bashrc .bash_aliases .tmux.conf)
+FILES_AND_DIRS=(.bashrc .bash_aliases .tmux.conf .config)
 COPY_OR_LINK=""
 
 function copy_file (

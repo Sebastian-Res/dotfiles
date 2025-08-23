@@ -17,3 +17,5 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias nv='nvim .'
+alias nvc='nvim ~/.config/nvim/'
