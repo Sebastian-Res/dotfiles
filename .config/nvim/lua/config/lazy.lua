@@ -31,3 +31,5 @@ require("lazy").setup({
     -- automatically check for plugin updates
     checker = { enabled = false },
 })
+
+require("config.lsp")
