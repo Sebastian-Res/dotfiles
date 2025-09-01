@@ -11,14 +11,5 @@ return {
             },
             automatic_installation = false,
         })
-
-        require("mason-lspconfig").setup({
-            -- Setup ls
-            function(server_name)
-                local server = require("lspconfig")[server_name]
-                local capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities)
-                server.setup({ capabilities = capabilities })
-            end,
-        })
     end,
 }

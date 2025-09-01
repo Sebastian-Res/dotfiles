@@ -1,6 +1,7 @@
 return {
     "saghen/blink.cmp",
     dependencies = { "rafamadriz/friendly-snippets" },
+    enabled = true,
     version = "1.*",
     opts = {
         -- "default" (recommended) for mappings similar to built-in completions (C-y to accept)

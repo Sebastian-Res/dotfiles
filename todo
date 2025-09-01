@@ -1,0 +1,6 @@
+General
+    - Fix install (link to folder)
+    - update readme with links to nvim and tpm
+
+Nvim
+    - Lsp configuration

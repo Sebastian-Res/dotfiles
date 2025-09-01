@@ -1,6 +1,7 @@
 return {
     "rmagatti/auto-session",
     lazy = false,
+    enabled = true,
     ---@module "auto-session"
     ---@type AutoSession.Config
     opts = {
@@ -8,7 +9,6 @@ return {
         suppressed_dirs = { "~/", "~/Downloads", "/" },
         bypass_save_filetypes = { "dashboard" },
         args_allow_single_directory = true,
-        -- log_level = "debug",
         pre_save_cmds = {
             "NvimTreeClose"
         },

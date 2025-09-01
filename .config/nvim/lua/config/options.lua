@@ -18,7 +18,9 @@ vim.o.softtabstop = 4  -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4   -- Number of spaces inserted when indenting
 
 -- session
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+vim.opt.clipboard = "unnamedplus"
 
 -- line numbers
 vim.opt.number = true
@@ -26,4 +28,4 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
 
 -- colorscheme
-vim.g.catppuccin_scheme = "macchiato"
+vim.o.background = "dark"

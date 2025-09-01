@@ -28,7 +28,7 @@ return {
     config = function()
         require("nvim-tree").setup({
             view = {
-                width = 30,
+                width = 35,
                 side = "left",
             },
             renderer = {
@@ -43,6 +43,9 @@ return {
             update_focused_file = {
                 enable = true,
             },
+            git = {
+                ignore = false
+            }
         })
     end,
 }
