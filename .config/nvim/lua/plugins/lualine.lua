@@ -1,9 +1,13 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-        ignore_focus = {
-            "NvimTree"
-        }
-    }
+    config = function()
+        require("lualine").setup({
+            options = {
+                ignore_focus = {
+                    "NvimTree"
+                }
+            },
+        })
+    end
 }

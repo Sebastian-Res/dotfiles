@@ -15,11 +15,15 @@ vim.lsp.config("lua_ls", {
             workspace = {
                 library = {
                     vim.fn.expand '~/.luarocks/share/lua/5.3',
-                    '/usr/share/lua/5.3'
+                    '/usr/share/lua/5.3',
+                    vim.fn.getcwd()
                 },
+
                 checkThirdParty = false,
             },
-            telemetry = false
+            telemetry = {
+                enable = false
+            }
         }
     }
 })
