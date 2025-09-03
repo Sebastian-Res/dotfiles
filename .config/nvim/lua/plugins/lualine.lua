@@ -6,7 +6,8 @@ return {
             options = {
                 ignore_focus = {
                     "NvimTree"
-                }
+                },
+                theme = 'gruvbox-material'
             },
         })
     end

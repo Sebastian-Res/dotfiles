@@ -67,7 +67,7 @@ return {
         insert_at_start = false,
         insert_at_end = true,
         icons = {
-            separator = { left = "┣", right = "" },
+            separator = { left = "", right = "" },
             separator_at_end = true,
             inactive = {
                 separator = { left = "│", right = "" },
