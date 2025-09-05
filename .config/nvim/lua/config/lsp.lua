@@ -1,29 +1,25 @@
-vim.lsp.config("lua_ls", {
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'Lua 5.3',
-                path = {
-                    '?.lua',
-                    '?/init.lua',
-                    vim.fn.expand '~/.luarocks/share/lua/5.3/?.lua',
-                    vim.fn.expand '~/.luarocks/share/lua/5.3/?/init.lua',
-                    '/usr/share/5.3/?.lua',
-                    '/usr/share/lua/5.3/?/init.lua'
-                }
-            },
-            workspace = {
-                library = {
-                    vim.fn.expand '~/.luarocks/share/lua/5.3',
-                    '/usr/share/lua/5.3',
-                    vim.fn.getcwd()
-                },
-
-                checkThirdParty = false,
-            },
-            telemetry = {
-                enable = false
-            }
-        }
-    }
+vim.diagnostic.config({
+    signs = {
+        -- icon before line number
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = "󰌵 ",
+        },
+        -- line number color
+        numhl = {
+            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+        },
+    },
+    virtual_text = {
+        prefix = "",
+    },
+    virtual_lines = vim.g.virtual_lines,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
 })
