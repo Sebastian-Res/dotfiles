@@ -13,7 +13,16 @@ return {
                 lualine_x = {
                     {
                         require("noice").api.statusline.mode.get,
-                        cond = require("noice").api.statusline.mode.has,
+                        cond = function()
+                            if require("noice").api.statusline.mode.has() == false then
+                                return false
+                            else
+                                local mode = require("noice").api.statusline.mode.get()
+
+                                if string.match(mode, "INSERT") then return false end
+                                return true
+                            end
+                        end
                     },
                     {
                         require("noice").api.status.command.get,
