@@ -12,22 +12,5 @@ return {
 
             vim.cmd.colorscheme("gruvbox-material")
         end
-    },
-    -- Bamboo
-    {
-        'ribru17/bamboo.nvim',
-        lazy = false,
-        priority = 1000,
-        enabled = false,
-        config = function()
-            require('bamboo').setup {
-                style = "multiplex", -- or "vulgaris"
-                lualine = {
-                    transparent = false,
-                },
-            }
-            require("bamboo").load()
-            --vim.cmd.colorscheme("bamboo")
-        end,
-    },
+    }
 }
