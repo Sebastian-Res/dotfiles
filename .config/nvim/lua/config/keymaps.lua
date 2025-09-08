@@ -34,3 +34,9 @@ map("n", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { desc = "Mov
 -- diagnostics
 map("n", "<leader>dta", ":DiagnosticToggle<CR>", { desc = "Toggle Diagnostic" })
 map("n", "<leader>dtl", ":DiagnosticVirtualLinesToggle<CR>", { desc = "Toggle Virtual Lines Diagnostic" })
+
+-- copy, paste, replace
+-- replaces the inner word under the cursor without copying what was removed
+map("n", "<leader>criw", '"_ciw<ESC>p', { desc = "Change (replace) inner word" })
+-- replaces the line under the cursor without copying what was removed
+map("n", "<leader>crcl", '"_dd<ESC><S-p>', { desc = "Change (replace) complete line" })
