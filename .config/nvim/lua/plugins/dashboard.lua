@@ -37,6 +37,12 @@ return {
                         key = "g"
                     },
                     {
+                        icon = " ",
+                        desc = " Open new buffer",
+                        action = "enew",
+                        key = "n"
+                    },
+                    {
                         icon = "󰒲  ",
                         desc = "Lazy",
                         action = "Lazy",
