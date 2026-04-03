@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 local lua_ls_config = {}
 
 local lua_version = _VERSION
