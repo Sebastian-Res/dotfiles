@@ -1,0 +1,17 @@
+configs:
+  - name: bash
+    files:
+      - src_path: "./configurations/bash/.bashrc"
+        target_folder: "~/"
+      - src_path: "./configurations/bash/.bash_aliases"
+        target_folder: "~/"
+
+  - name: nvim
+    files:
+      - src_path: "./configurations/nvim/"
+        target_folder: "~/.config/"
+
+  - name: tmux
+    files:
+      - src_path: "./configurations/.tmux.conf"
+        target_folder: "~/"
