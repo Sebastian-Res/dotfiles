@@ -1,9 +1,0 @@
-require("config.options")
-
-require("config.custom_commands")
-
-require("config.keymaps")
-
-require("config.lazy")
-
-require("config.lsp")
