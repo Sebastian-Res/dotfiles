@@ -4,14 +4,15 @@
 - **Nvim**
 - **Tmux**
 - **Bash**
+- **Kitty**
 
 ## 🚀 Installation Scripts
 > ⚠️ Scripts are WIP
 - **Homebrew**
+- **Kitty** (parital)
 - **Nvim** *(coming soon)*
 - **Tmux** *(coming soon)*
 - **TPM (Tmux Plugin Manager)** *(coming soon)*
-- **Kitty** *(coming soon)*
 
 ## 📋 Requirements
 - **Nvim** - [Install Guide](https://neovim.io/doc/install/)
