@@ -15,3 +15,9 @@ configs:
     files:
       - src_path: "./configurations/.tmux.conf"
         target_folder: "~/"
+
+# Either take whole folder instead of only config or check folder exists when linking
+  - name: kitty
+    files:
+      - src_path: "./configurations/kitty/kitty.conf"
+        target_folder: "~/.config/kitty/"
