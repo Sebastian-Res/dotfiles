@@ -33,7 +33,12 @@ return {
                         cond = require("noice").api.status.search.has,
                     },
                     'encoding',
-                    'lsp_status',
+                    {
+                        'lsp_status',
+                        ignore_lsp = {
+                            "GitHub Copilot"
+                        },
+                    },
                     'filetype',
                 },
             },
