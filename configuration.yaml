@@ -8,16 +8,15 @@ configs:
 
   - name: nvim
     files:
-      - src_path: "./configurations/nvim/"
+      - src_path: "./configurations/nvim/nvim"
         target_folder: "~/.config/"
 
   - name: tmux
     files:
-      - src_path: "./configurations/.tmux.conf"
+      - src_path: "./configurations/tmux/.tmux.conf"
         target_folder: "~/"
 
-# Either take whole folder instead of only config or check folder exists when linking
   - name: kitty
     files:
-      - src_path: "./configurations/kitty/kitty.conf"
-        target_folder: "~/.config/kitty/"
+      - src_path: "./configurations/kitty/kitty"
+        target_folder: "~/.config/"
