@@ -1,4 +1,5 @@
 return {
+    -- TODO: Alternative (Repository Archived), New configuration
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
