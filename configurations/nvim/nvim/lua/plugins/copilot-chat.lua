@@ -9,7 +9,7 @@ return {
         },
         opts = {
             -- Depends on the available models
-            model = "gpt-5.3-codex",
+            model = "gpt-5.2-codex",
 
             window = {
                 -- TODO: Only works if File Tree closed
