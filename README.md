@@ -16,6 +16,7 @@
 
 ## 📋 Requirements
 - **Nvim** - [Install Guide](https://neovim.io/doc/install/)
+    - Requires **tree-sitter-cli**
 - **Tmux** - [Install Guide](https://github.com/tmux/tmux/wiki/Installing)
 - **TPM (Tmux Plugin Manager)** - [Install Guide](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation)
 -  **Go** - [Install Guide](https://go.dev/doc/install) (For building the installer)
