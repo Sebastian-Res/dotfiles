@@ -11,6 +11,7 @@ return {
             vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
 
             vim.cmd.colorscheme("gruvbox-material")
+            vim.api.nvim_set_hl(0, "Visual", { bg = "#342e4f" })
         end
     }
 }
