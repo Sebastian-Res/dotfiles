@@ -3,23 +3,28 @@ package main
 type Operation int
 
 const (
-	Copy Operation = iota
-	Link
+	Link Operation = iota
+	Copy
 	Remove
 	Backup
 )
 
 func (s Operation) String() string {
 	switch s {
-	case Copy:
-		return "Copy"
 	case Link:
 		return "Link"
+	case Copy:
+		return "Copy (WIP)"
 	case Remove:
-		return "Remove"
+		return "Remove (WIP)"
 	case Backup:
-		return "Backup"
+		return "Backup (WIP)"
 	default:
 		return ""
 	}
+}
+
+type OperationResult struct {
+	success bool
+	err     string
 }

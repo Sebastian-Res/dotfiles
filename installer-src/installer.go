@@ -13,10 +13,13 @@ import (
 	xstrings "github.com/charmbracelet/x/exp/strings"
 )
 
+// Maybe use https://github.com/jroimartin/gocui in the future
+
 type Instructions struct {
 	Operation    Operation
-	ConfigNames  []string
+	Configs      []*Config
 	Confirmation bool
+	Results      []OperationResult
 }
 
 func CustomKeyMap() *huh.KeyMap {
@@ -38,12 +41,12 @@ func main() {
 	customTheme := new(CustomTheme)
 
 	var available_configs []Config
-	var configname_options []huh.Option[string]
+	var configname_options []huh.Option[*Config]
 	startUp := func() {
 		time.Sleep(500 * time.Millisecond)
 		available_configs = ReadConfigurationFile().Configs
 		for _, config := range available_configs {
-			configname_options = append(configname_options, huh.NewOption(config.Name, config.Name).Selected(true))
+			configname_options = append(configname_options, huh.NewOption(config.Name, &config).Selected(true))
 		}
 	}
 
@@ -56,26 +59,26 @@ func main() {
 			huh.NewSelect[Operation]().
 				Title("What to do?").
 				Options(
-					huh.NewOption("Copy", Copy).Selected(true),
-					huh.NewOption("Link", Link),
-					huh.NewOption("Backup", Backup),
-					huh.NewOption("Remove", Remove),
+					huh.NewOption(Link.String(), Link).Selected(true),
+					huh.NewOption(Copy.String(), Copy),
+					huh.NewOption(Backup.String(), Backup),
+					huh.NewOption(Remove.String(), Remove),
 				).
 				Value(&instructions.Operation),
 		),
 
 		huh.NewGroup(
-			huh.NewMultiSelect[string]().
+			huh.NewMultiSelect[*Config]().
 				// Remove when it does not take a space from the options
 				// Title("Configs").
 				Options(configname_options...).
-				Validate(func(t []string) error {
+				Validate(func(t []*Config) error {
 					if len(t) <= 0 {
 						return fmt.Errorf("at least one config is required")
 					}
 					return nil
 				}).
-				Value(&instructions.ConfigNames).
+				Value(&instructions.Configs).
 				Filterable(true),
 		),
 
@@ -107,26 +110,78 @@ func main() {
 
 	installing := func() {
 		time.Sleep(500 * time.Millisecond)
+
+		for _, config_pointer := range instructions.Configs {
+			var result OperationResult
+
+			for _, files := range config_pointer.Files {
+				var res OperationResult
+
+				switch instructions.Operation {
+				case Link:
+					res = LinkFile(files.Src_path, files.Target_folder)
+				case Copy:
+					fmt.Println("Copy not supported yet")
+					os.Exit(1)
+				case Remove:
+					fmt.Println("Removed not supported yet")
+					os.Exit(1)
+				case Backup:
+					fmt.Println("Backup not supported yet")
+					os.Exit(1)
+				}
+
+				result = res
+
+				if !res.success {
+					break
+				}
+			}
+			instructions.Results = append(instructions.Results, result)
+		}
 	}
 
 	_ = spinner.New().Title("Working...").Action(installing).Run()
 
-	// Print order summary.
+	// Print operation summary.
 	{
-		var sb strings.Builder
 		keyword := func(s string) string {
-			return lipgloss.NewStyle().Foreground(lipgloss.Color("212")).Render(s)
+			return lipgloss.NewStyle().Foreground(lipgloss.BrightMagenta).Render(s)
 		}
+
+		success_config := func(s string) string {
+			return lipgloss.NewStyle().Foreground(lipgloss.Green).Render(s)
+		}
+
+		failed_config := func(s string) string {
+			return lipgloss.NewStyle().Foreground(lipgloss.Red).Render(s)
+		}
+
+		var sb strings.Builder
 		fmt.Fprintf(&sb,
-			"%s\n\nType: %s\nConfigs: %s",
+			"%s\n\nType: %s\nConfigs: ",
 			lipgloss.NewStyle().Bold(true).Render("SUMMARY"),
 			keyword(instructions.Operation.String()),
-			keyword(xstrings.EnglishJoin(instructions.ConfigNames, true)),
 		)
+
+		// Array of config names
+		var names []string
+		for _, config := range instructions.Configs {
+			names = append(names, config.Name)
+		}
+		sb.WriteString(keyword(xstrings.EnglishJoin(names, true)) + "\n")
+
+		for index, config := range instructions.Configs {
+			if instructions.Results[index].success {
+				sb.WriteString(success_config("✓ " + config.Name))
+			} else {
+				sb.WriteString(failed_config("✗ "+config.Name) + ": " + instructions.Results[index].err)
+			}
+			sb.WriteString("\n")
+		}
 
 		fmt.Println(
 			lipgloss.NewStyle().
-				Width(40).
 				BorderStyle(lipgloss.RoundedBorder()).
 				BorderForeground(lipgloss.Color("63")).
 				Padding(1, 2).
