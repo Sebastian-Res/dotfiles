@@ -18,13 +18,10 @@
 - **Nvim** - [Install Guide](https://neovim.io/doc/install/)
     - Requires **tree-sitter-cli**
 - **Tmux** - [Install Guide](https://github.com/tmux/tmux/wiki/Installing)
-- **TPM (Tmux Plugin Manager)** - [Install Guide](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation)
+    - Requires **TPM (Tmux Plugin Manager)** - [Install Guide](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation)
 -  **Go** - [Install Guide](https://go.dev/doc/install) (For building the installer)
 
 ## ⚡ Installation
-
-### 🛠️ Manual
-- Copy or link configs
 
 ### 🔌 Automatic (WIP)
 - To install configs:
@@ -33,15 +30,10 @@
 ./installer
 ```
 
+### 🛠️ Manual
+- Copy or link configs
+
 ### In the programs
 - Inside tmux
 > Ctrl + b → Shift + i
 
----
-
-## ⚡Installation (old script)
-- Run install script
-
-```sh
-./install-old.sh
-```
