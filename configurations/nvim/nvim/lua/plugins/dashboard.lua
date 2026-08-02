@@ -1,6 +1,6 @@
 return {
     "nvimdev/dashboard-nvim",
-    requires = {
+    dependencies = {
         "nvim-tree/nvim-web-devicons"
     },
     lazy = false,
