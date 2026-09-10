@@ -17,6 +17,14 @@
 ## 📋 Requirements
 - **Nvim** - [Install Guide](https://neovim.io/doc/install/)
     - Requires **tree-sitter-cli**
+    - Requires **codex**:
+    - Requires **codex-acp**:
+
+      ```sh
+      npm install -g @agentclientprotocol/codex-acp
+      codex-acp --version
+      codex login status
+      ```
 - **Tmux** - [Install Guide](https://github.com/tmux/tmux/wiki/Installing)
     - Requires **TPM (Tmux Plugin Manager)** - [Install Guide](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation)
 -  **Go** - [Install Guide](https://go.dev/doc/install) (For building the installer)
@@ -36,4 +44,3 @@
 ### In the programs
 - Inside tmux
 > Ctrl + b → Shift + i
-
