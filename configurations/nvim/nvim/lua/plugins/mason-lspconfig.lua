@@ -9,9 +9,10 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "gopls"
+                "gopls",
+                "tinymist"
             },
-            automatic_installation = false,
+            automatic_enable = { "lua_ls", "gopls", "tinymist" },
         })
     end,
 }

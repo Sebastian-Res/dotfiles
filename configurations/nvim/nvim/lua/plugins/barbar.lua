@@ -74,7 +74,7 @@ return {
             }
         },
         sidebar_filetypes = {
-            NvimTree = true,
+            ["neo-tree"] = { event = "BufWipeout" },
         },
         filetype = {
             enabled = true,

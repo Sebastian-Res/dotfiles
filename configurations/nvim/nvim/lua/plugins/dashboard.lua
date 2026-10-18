@@ -3,7 +3,6 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons"
     },
-    lazy = false,
     enabled = true,
     event = "VimEnter",
     config = function()

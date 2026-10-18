@@ -10,15 +10,16 @@ return {
         bypass_save_filetypes = { "dashboard" },
         args_allow_single_directory = true,
         pre_save_cmds = {
-            "NvimTreeClose"
+            "Neotree close"
         },
         post_restore_cmds = {
             function()
-                -- Restore nvim-tree after a session is restored
-                local nvim_tree_api = require("nvim-tree.api")
-                nvim_tree_api.tree.open()
-                nvim_tree_api.tree.change_root(vim.fn.getcwd())
-                nvim_tree_api.tree.reload()
+                -- Reopen the explorer at the restored working directory.
+                require("neo-tree.command").execute({
+                    action = "show",
+                    source = "filesystem",
+                    dir = vim.fn.getcwd(),
+                })
             end
         },
     }

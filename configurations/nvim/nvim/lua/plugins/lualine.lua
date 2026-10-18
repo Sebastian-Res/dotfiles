@@ -4,7 +4,7 @@ return {
     config = function()
         require("lualine").setup({
             extensions = {
-                "nvim-tree"
+                "neo-tree"
             },
             options = {
                 theme = "gruvbox-material",

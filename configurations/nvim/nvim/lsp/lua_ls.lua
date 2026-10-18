@@ -19,7 +19,8 @@ lua_ls_config = {
                 library = {
                     vim.fn.getcwd(),
                     vim.env.VIMRUNTIME,
-                    "${3rd}/luv/library"
+                    "${3rd}/luv/library",
+                    vim.fn.stdpath("data") .. "/lazy"
                 },
                 checkThirdParty = false,
                 ignoreDir = {

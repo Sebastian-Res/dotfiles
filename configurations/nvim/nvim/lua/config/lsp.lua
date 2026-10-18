@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- LSP Keymaps
         map("n", "<leader>fm", function() vim.lsp.buf.format() end,
-            { desc = "Format file" })
+            { desc = "Format file", buffer = attached_buf })
 
         map("n", "K", vim.lsp.buf.hover,
             { desc = "LSP - hover", buffer = attached_buf })

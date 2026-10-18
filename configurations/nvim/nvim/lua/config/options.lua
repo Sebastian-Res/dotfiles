@@ -18,6 +18,13 @@ vim.opt.softtabstop = 4  -- Number of spaces inserted instead of a TAB character
 vim.opt.shiftwidth = 4   -- Number of spaces inserted when indenting
 vim.opt.smartindent = true
 
+-- Tree-sitter folds for functions and other blocks; keep them open initially.
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
 -- session
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
