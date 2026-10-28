@@ -12,7 +12,7 @@ return {
                 "gopls",
                 "tinymist"
             },
-            automatic_enable = { "lua_ls", "gopls", "tinymist" },
+            automatic_enable = true,
         })
     end,
 }
